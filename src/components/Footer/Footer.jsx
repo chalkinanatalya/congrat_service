@@ -11,7 +11,7 @@ const Footer = () => (
             <div className={style.wrapper}>
                 <div className={style.contacts}>
                     <p>Design: <a href='https://t.me/Mrshmallowww'>Anastasia Ilina</a></p>
-                    <p>Сoder: <a href='https://t.me/Nchalky'>Nchalk</a></p>
+                    <p>Сoder: <a href='https://t.me/dev_Nchalk'>Nchalk</a></p>
                     <p>© HBCard, 2022</p>
                 </div>
                 <ul className={style.social}>
