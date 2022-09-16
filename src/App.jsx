@@ -1,4 +1,5 @@
-import { TextContext } from './context/textContext';
+import { TextContextProvider } from './context/textContext';
+import { ImgContextProvider } from './context/imgContext';
 import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -13,11 +14,13 @@ const wrapper = {
 const App = () => {
   return (
     <div style={wrapper}>
-      <TextContext>
-        <Header />
-        <Card />
-        <Footer />
-      </TextContext>
+      <ImgContextProvider>
+        <TextContextProvider>
+          <Header />
+          <Card />
+          <Footer />
+        </TextContextProvider>
+      </ImgContextProvider>
     </div>
   );
 }
