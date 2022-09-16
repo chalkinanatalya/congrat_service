@@ -1,3 +1,4 @@
+import { TextContext } from './context/textContext';
 import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -12,9 +13,11 @@ const wrapper = {
 const App = () => {
   return (
     <div style={wrapper}>
-      <Header />
-      <Card />
-      <Footer />
+      <TextContext>
+        <Header />
+        <Card />
+        <Footer />
+      </TextContext>
     </div>
   );
 }
