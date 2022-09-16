@@ -27,6 +27,11 @@
     font-size: 18px;
     background-color: #00c78b;
     color: #fff;
+    transition: color .3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #02d673;
 }
 
 @media(max-width: 1024px) {
