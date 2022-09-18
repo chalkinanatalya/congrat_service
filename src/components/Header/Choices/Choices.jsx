@@ -1,5 +1,6 @@
 import style from './Choices.module.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { holidaysContext } from '../../../context/holidayContext';
 
 const holidays = {
 newyear: 'Новый год',
@@ -11,7 +12,7 @@ knowledgeday: 'День знаний',
 
 const Choices = () => {
     const [isOpenChoises, setIsOpenChoices] = useState(false);
-    const [holiday, setHoliday] = useState('Выбрать праздник');
+    const {holiday, setHoliday} = useContext(holidaysContext);
 
     const toggeChoises = () => {
         setIsOpenChoices(!isOpenChoises);
