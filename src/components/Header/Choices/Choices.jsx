@@ -1,19 +1,23 @@
 import style from './Choices.module.css';
-import { useContext, useState } from 'react';
-import { holidaysContext } from '../../../context/holidayContext';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHoliday } from '../../../store/holidaysSlice';
+import { fetchHolidays } from '../../../store/holidaysSlice';
 
 const Choices = () => {
     const [isOpenChoises, setIsOpenChoices] = useState(false);
-    const { holiday } = useSelector(state => state.holidays);
-    const { holidays } = useContext(holidaysContext);
+    const { holiday, holidays } = useSelector(state => state.holidays);
 
     const dispatch = useDispatch();
 
     const toggeChoises = () => {
         setIsOpenChoices(!isOpenChoises);
     };
+
+    useEffect(() => {
+        dispatch(fetchHolidays());
+
+    }, [dispatch]);
 
 return (
     <div className={style.wrapper}>
@@ -42,3 +46,4 @@ return (
 }
 
 export default Choices;
+
