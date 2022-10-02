@@ -3,14 +3,16 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHoliday } from '../../../store/holidaysSlice';
 import { fetchHolidays } from '../../../store/holidaysSlice';
+import { fetchText } from '../../../store/textSlice';
 
 const Choices = () => {
     const [isOpenChoises, setIsOpenChoices] = useState(false);
-    const { holiday, holidays } = useSelector(state => state.holidays);
+    const { holiday, holidays, loading } = useSelector(state => state.holidays);
 
     const dispatch = useDispatch();
 
     const toggeChoises = () => {
+        if(loading !== 'success') return;
         setIsOpenChoices(!isOpenChoises);
     };
 
@@ -22,7 +24,9 @@ const Choices = () => {
 return (
     <div className={style.wrapper}>
         <button className={style.button} onClick={toggeChoises}>
-            {holidays[holiday] || 'Выбрать праздник'}
+            {loading !== 'success' ?
+            'Загрузка....' :
+            holidays[holiday] || 'Выбрать праздник'}
             </button>
     {isOpenChoises && (
         <ul className={style.list}>
@@ -32,6 +36,7 @@ return (
             key={item[0]}
             onClick={() => {
                 dispatch(setHoliday(item[0]));
+                dispatch(fetchText(item[0]));
                 toggeChoises();
                 }
             }

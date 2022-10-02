@@ -30,7 +30,7 @@ const holidaysSlice = createSlice({
             state.loading = 'pending';
         },
         [fetchHolidays.fulfilled]: (state, action) => {
-            state.loading = 'fulfilled';
+            state.loading = 'success';
             state.holidays = action.payload;
         },
         [fetchHolidays.rejected]: (state) => {
