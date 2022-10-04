@@ -1,4 +1,3 @@
-import { ImgContextProvider } from './context/imgContext';
 import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -13,11 +12,9 @@ const wrapper = {
 const App = () => {
   return (
     <div style={wrapper}>
-        <ImgContextProvider>
             <Header />
             <Card />
             <Footer />
-        </ImgContextProvider>
     </div>
   );
 }
