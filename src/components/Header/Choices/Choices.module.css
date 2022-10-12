@@ -47,6 +47,10 @@
     margin-bottom: 0;
 }
 
+.linkActive {
+    color: #acf58f
+}
+
 @media(max-width: 1024px) {
     .button {
         width: 220px;
